@@ -1,0 +1,103 @@
+@extends('layout.bootstrapadmin.index')
+
+@section('content')
+
+<div class="col-sm-8">
+    <div class="panel panel-info">
+        <div class="panel-heading"><i class="glyphicon glyphicon-plus"></i> Form Input Data Tagihan </div>
+        <div class="panel-body">
+            <form class="form-horizontal" action="<?php echo URL::to("/tagihan/proses_add"); ?>" method="post">
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Bulan Tahun</label>
+                    <div class="col-sm-4">
+                        <input type="text" name="bulan_tahun" class="form-control " placeholder="bulan_tahun">
+                        <p style="color: red"> {{ $errors->first('bulan_tahun') }} </p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="inputEmail3" class="col-sm-2 control-label">Id Pelanggan</label>
+                    <div class="col-sm-4">
+                        <select class="form-control" name="pelanggan_id">
+                            <option value="" disabled="" selected="">pilih pelanggan_id...!</option>
+                            <?php foreach ($isi_pelanggan as $value) {?>
+                            <option value="<?php echo $value->id ?>"><?php echo $value->id ?></option>
+                            <?php } ?>
+                        </select>
+                        <p style="color: red"> {{ $errors->first('pelanggan_id') }} </p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Id Golongan</label>
+                    <div class="col-sm-4">
+                        <input type="number" name="golongan_id" class="form-control" placeholder="golongan_id">
+                        <p style="color: red"> {{ $errors->first('golongan_id') }} </p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Tarif</label>
+                    <div class="col-sm-4">
+                        <input type="number" name="tarif" class="form-control" placeholder="tarif">
+                        <p style="color: red"> {{ $errors->first('tarif') }} </p>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Meter Awal</label>
+                    <div class="col-sm-4">
+                        <input type="number" name="meter_awal" class="form-control" placeholder="meter_awal">
+                        <p style="color: red"> {{ $errors->first('meter_awal') }} </p>
+                </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Meter Akhir</label>
+                    <div class="col-sm-4">
+                        <input type="number" name="meter_akhir" class="form-control" placeholder="meter_akhir">
+                        <p style="color: red"> {{ $errors->first('meter_akhir') }} </p>
+                </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">pakai</label>
+                    <div class="col-sm-4">
+                        <input type="number" name="pakai" class="form-control" placeholder="pakai">
+                        <p style="color: red"> {{ $errors->first('pakai') }} </p>
+                </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Tagihan Air</label>
+                    <div class="col-sm-4">
+                        <input type="number" name="tagihan_air" class="form-control" placeholder="tagihan_air">
+                        <p style="color: red"> {{ $errors->first('tagihan_air') }} </p>
+                </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Biaya Administrasi</label>
+                    <div class="col-sm-4">
+                        <input type="number" name="biaya_administrasi" class="form-control" placeholder="biaya_administrasi">
+                        <p style="color: red"> {{ $errors->first('biaya_administrasi') }} </p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Biaya Pemeliharaan</label>
+                    <div class="col-sm-4">
+                        <input type="number" name="biaya_pemeliharaan" class="form-control" placeholder="biaya_pemeliharaan">
+                        <p style="color: red"> {{ $errors->first('biaya_pemeliharaan') }} </p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Total Tagihan</label>
+                    <div class="col-sm-4">
+                        <input type="text" name="total_tagihan" class="form-control" placeholder="total_tagihan">
+                        <p style="color: red"> {{ $errors->first('total_tagihan') }} </p>
+                </div>
+                </div>
+                
+                <div class="form-group">
+                    <div class="col-sm-offset-3 col-sm-10">
+                        <button type="submit" class="btn btn-info"><i class="glyphicon glyphicon-saved"></i> Simpan</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+@stop

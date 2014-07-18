@@ -1,0 +1,57 @@
+@extends('layout.bootstrapadmin.index')
+
+@section('content')
+<div class="col-sm-8">
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <i class="glyphicon glyphicon-edit"></i> 
+            Form Update Pelanggan 
+        </div>
+        <div class="panel-body">
+            <form class="form-horizontal" action="<?php echo URL::to("/pelanggan/update/". $isi->id); ?>" method="post">
+                
+                
+                
+                <div class="form-group">
+                    <label for="inputEmail3" class="col-sm-2 control-label">Nama</label>
+                    <div class="col-sm-4">
+                        <input type="text" name="nama" value="<?php echo $isi->nama ?>" class="form-control ">
+                        <p style="color: red"> {{ $errors->first('nama') }} </p>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="inputEmail3" class="col-sm-2 control-label">Alamat</label>
+                    <div class="col-sm-5">
+                        <input type="text" name="alamat" value="<?php echo $isi->alamat ?>" class="form-control">
+                        <p style="color: red"> {{ $errors->first('alamat') }} </p>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="inputEmail3" class="col-sm-2 control-label">No.hp</label>
+                    <div class="col-sm-5">
+                        <input type="text" name="no_hp" value="<?php echo $isi->no_hp ?>" class="form-control">
+                        <p style="color: red"> {{ $errors->first('no_hp') }} </p>
+                    </div>
+                </div>
+             
+                <div class="form-group">
+                    <label for="inputEmail3" class="col-sm-2 control-label">Golongan ID</label>
+                    <div class="col-sm-5">
+                        <input type="text" name="golongan_id" value="<?php echo $isi->golongan_id ?>" class="form-control">
+                        <p style="color: red"> {{ $errors->first('golongan_id') }} </p>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <button type="submit" class="btn btn-info"><i class="glyphicon glyphicon-saved"></i> Update</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@stop
